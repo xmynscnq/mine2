@@ -557,12 +557,6 @@
   </div>
 </div>
 
-<div id="side-info-panel">
-    <h3>☀️ 实时信息</h3>
-    <p>日期: <span id="current-date"></span></p>
-    <p>时间: <span id="current-time"></span></p>
-</div>
-
 <script>
   // --- 保底图标 (SVG Base64) ---
   const DEFAULT_ICON = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiPjwvY2lyY2xlPjxwYXRoIGQ9Ik0yIDEyaDIwIj48L3BhdGg+PHBhdGggZD0iTTEyIDJhMTUuMyAxNS4zIDAgMCAxIDQgMTAgMTUuMyAxNS4zIDAgMCAxLTQgMTAgMTUuMyAxNS4zIDAgMCAxLTQtMTAgMTUuMyAxNS4zIDAgMCAxIDQtMTB6Ij48L3BhdGg+PC9zdmc+';
@@ -631,7 +625,7 @@
     
     const domain = getDomain(urlStr);
     if(domain) {
-       const iconSrc = `https://favicon.yandex.net/favicon/${domain}`;
+       const iconSrc = `https://78.xmynscnq.dpdns.org/www.google.com/s2/favicons?sz=64&domain=${domain}`;
        iconImg.src = iconSrc;
     } else {
        iconImg.src = DEFAULT_ICON;
@@ -697,6 +691,7 @@
 </body>
 
 </html>
+
 
 
 
