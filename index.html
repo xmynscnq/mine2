@@ -647,30 +647,43 @@
   }
 
   // 6. 背景切换
-  const backgrounds = [
-    'https://images.wallpaperscraft.com/image/single/circles_rotation_red_136932_1280x720.jpg',
-    'https://images.wallpaperscraft.com/image/single/silhouette_night_starry_sky_137292_1280x720.jpg',
-    'https://images.wallpaperscraft.com/image/single/cat_pet_whiskers_1310972_1280x720.jpg',
-    'https://images.wallpaperscraft.com/image/single/autumn_forest_park_128379_1280x720.jpg',
+  const apis = [
+    "https://bing.img.run/rand.php",
+    "https://3650000.xyz/api/360.php"
   ];
-  let index = 0;
-  
-  backgrounds.forEach(src => {
-    const img = new Image();
-    img.src = src;
-  });
 
-  function rotateBackground() {
-    document.body.style.backgroundImage = `url('${backgrounds[index]}')`;
-    index = (index + 1) % backgrounds.length;
+  let apiIndex = 0;
+
+  function changeBackground() {
+    const url = apis[apiIndex] + "?t=" + Date.now();
+
+    const img = new Image();
+    img.onload = () => {
+      document.body.style.opacity = 0;
+      setTimeout(() => {
+        document.body.style.backgroundImage = `url('${url}')`;
+        document.body.style.opacity = 1;
+      }, 300);
+    };
+
+    img.onerror = () => {
+      apiIndex = (apiIndex + 1) % apis.length;
+      changeBackground(); // 换下一个接口
+    };
+
+    img.src = url;
   }
-  rotateBackground();
-  setInterval(rotateBackground, 60000)
+
+  // 初始化
+  document.body.style.transition = "opacity 0.5s ease";
+  changeBackground();
+  setInterval(changeBackground, 60000);
 </script>
 
 </body>
 
 </html>
+
 
 
 
