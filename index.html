@@ -648,11 +648,10 @@
 
   // 6. 背景切换
   const backgrounds = [
-    'https://images.pexels.com/photos/1183099/pexels-photo-1183099.jpeg',
-    'https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg',
-    'https://images.pexels.com/photos/355465/pexels-photo-355465.jpeg',
-    'https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg',
-    'https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg' 
+    'https://images.wallpaperscraft.com/image/single/circles_rotation_red_136932_1280x720.jpg',
+    'https://images.wallpaperscraft.com/image/single/silhouette_night_starry_sky_137292_1280x720.jpg',
+    'https://images.wallpaperscraft.com/image/single/cat_pet_whiskers_1310972_1280x720.jpg',
+    'https://images.wallpaperscraft.com/image/single/autumn_forest_park_128379_1280x720.jpg',
   ];
   let index = 0;
   
@@ -666,31 +665,13 @@
     index = (index + 1) % backgrounds.length;
   }
   rotateBackground();
-  setInterval(rotateBackground, 60000); 
-
-  // 7. 侧边信息更新 (日期/时间)
-  function updateTime() {
-      const now = new Date();
-      // 使用更简洁的格式
-      const dateOptions = { year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'short' };
-      const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-      
-      const dateStr = now.toLocaleDateString('zh-CN', dateOptions);
-      const timeStr = now.toLocaleTimeString('zh-CN', timeOptions);
-
-      const dateElement = document.getElementById('current-date');
-      const timeElement = document.getElementById('current-time');
-
-      if (dateElement && timeElement) {
-          dateElement.textContent = dateStr;
-          timeElement.textContent = timeStr;
-      }
-  }
+  setInterval(rotateBackground, 60000)
 </script>
 
 </body>
 
 </html>
+
 
 
 
