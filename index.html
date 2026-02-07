@@ -647,42 +647,44 @@
   }
 
   // 6. 背景切换
-  const apis = [
-    "https://bing.img.run/rand.php",
-    "https://3650000.xyz/api/360.php"
-  ];
+const apis = [
+  "https://bing.img.run/rand.php",
+  "https://3650000.xyz/api/360.php"
+];
 
-  let apiIndex = 0;
+// 每次加载页面时随机选择一个接口
+let apiIndex = Math.floor(Math.random() * apis.length);
 
-  function changeBackground() {
-    const url = apis[apiIndex] + "?t=" + Date.now();
+function changeBackground() {
+  const url = apis[apiIndex] + "?t=" + Date.now();
 
-    const img = new Image();
-    img.onload = () => {
-      document.body.style.opacity = 0;
-      setTimeout(() => {
-        document.body.style.backgroundImage = `url('${url}')`;
-        document.body.style.opacity = 1;
-      }, 300);
-    };
+  const img = new Image();
+  img.onload = () => {
+    document.body.style.opacity = 0;
+    setTimeout(() => {
+      document.body.style.backgroundImage = `url('${url}')`;
+      document.body.style.opacity = 1;
+    }, 300);
+  };
 
-    img.onerror = () => {
-      apiIndex = (apiIndex + 1) % apis.length;
-      changeBackground(); // 换下一个接口
-    };
+  img.onerror = () => {
+    apiIndex = (apiIndex + 1) % apis.length;
+    changeBackground(); // 换下一个接口
+  };
 
-    img.src = url;
-  }
+  img.src = url;
+}
 
-  // 初始化
-  document.body.style.transition = "opacity 0.5s ease";
-  changeBackground();
-  setInterval(changeBackground, 60000);
+// 初始化
+document.body.style.transition = "opacity 0.5s ease";
+changeBackground();   // 只执行一次
+
 </script>
 
 </body>
 
 </html>
+
 
 
 
